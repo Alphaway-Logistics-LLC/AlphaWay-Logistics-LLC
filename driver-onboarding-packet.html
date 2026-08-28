@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Driver Onboarding Packet | Alphaway Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .packet { margin: 0 auto; max-width: 760px; padding: 56px 24px 80px; }
+        .packet-header { border-bottom: 2px solid var(--ink); margin-bottom: 42px; padding-bottom: 24px; }
+        .packet h1 { font-size: clamp(42px, 7vw, 68px); margin-bottom: 16px; }
+        .packet-intro { color: var(--muted); line-height: 1.6; max-width: 570px; }
+        .packet-section { border-top: 1px solid var(--line); margin-top: 34px; padding-top: 24px; }
+        .packet h2 { font-size: 28px; margin-bottom: 22px; }
+        .packet-grid { display: grid; gap: 18px 20px; grid-template-columns: 1fr 1fr; }
+        .packet label { display: grid; font-size: 12px; font-weight: 700; gap: 8px; }
+        .packet input { border: 1px solid var(--line); font: 15px 'DM Sans', sans-serif; padding: 13px; width: 100%; }
+        .packet input:focus { border-color: var(--ink); outline: 2px solid var(--lime); }
+        .check-row { align-items: flex-start; display: flex; gap: 10px; margin: 16px 0; }
+        .check-row input { margin-top: 3px; width: auto; }
+        .check-row label { display: block; font-size: 14px; font-weight: 400; line-height: 1.5; }
+        .packet-actions { align-items: center; display: flex; gap: 20px; margin-top: 36px; }
+        .packet-message { color: #667d46; font-size: 13px; min-height: 20px; }
+        @media print { .packet-actions { display: none; } .packet { padding-top: 20px; } }
+        @media (max-width: 600px) { .packet-grid { grid-template-columns: 1fr; } .packet-actions { align-items: stretch; flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <main class="packet">
+        <header class="packet-header">
+            <a class="brand" href="index.html">ALPHAWAY <span>LOGISTICS</span></a>
+            <p class="eyebrow" style="margin-top: 48px;">Driver onboarding</p>
+            <h1>Welcome aboard.</h1>
+            <p class="packet-intro">Complete the information below and confirm the acknowledgements to submit your onboarding packet to the dispatch desk.</p>
+        </header>
+        <form id="onboarding-form" data-web3forms action="https://api.web3forms.com/submit" method="POST"><input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"><input type="hidden" name="subject" value="Driver onboarding packet">
+            <section class="packet-section" aria-labelledby="details-title">
+                <h2 id="details-title">Driver details</h2>
+                <div class="packet-grid">
+                    <label for="driver-name">Full name<input id="driver-name" name="driver-name" required></label>
+                    <label for="phone">Phone number<input id="phone" name="phone" type="tel" required></label>
+                    <label for="email">Email address<input id="email" name="email" type="email" required></label>
+                    <label for="mc-number">MC / DOT number<input id="mc-number" name="mc-number" required></label>
+                </div>
+            </section>
+            <section class="packet-section" aria-labelledby="acknowledgements-title">
+                <h2 id="acknowledgements-title">Acknowledgements</h2>
+                <div class="check-row"><input id="authority" name="authority" type="checkbox" required><label for="authority">I confirm that the information provided is accurate and I am authorized to operate under the company details listed above.</label></div>
+                <div class="check-row"><input id="terms" name="terms" type="checkbox" required><label for="terms">I have reviewed and agree to the Alphaway Logistics dispatching terms and communication expectations.</label></div>
+            </section>
+            <section class="packet-section" aria-labelledby="signature-title">
+                <h2 id="signature-title">Electronic signature</h2>
+                <div class="packet-grid"><label for="signature">Type your full legal name<input id="signature" name="signature" required></label><label for="signature-date">Date<input id="signature-date" name="signature-date" type="date" required></label></div>
+            </section>
+            <div class="packet-actions"><button class="button button-primary" type="submit">Submit signed packet <span aria-hidden="true">&#8594;</span></button><button class="button" type="button" onclick="window.print()">Print packet</button></div>
+            <p class="packet-message" role="status" aria-live="polite"></p>
+        </form>
+    </main>
+    <script src="script.js" defer></script>
+</body>
+</html>

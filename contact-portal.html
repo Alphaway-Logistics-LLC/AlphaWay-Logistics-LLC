@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrier Setup & Support | Alphaway Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .portal { margin: 0 auto; max-width: 1120px; padding: 50px 32px 90px; }
+        .portal-header { border-bottom: 1px solid var(--line); padding-bottom: 50px; }
+        .portal-header h1 { font: 400 clamp(44px, 7vw, 76px)/1.1 'Playfair Display', serif; margin: 58px 0 18px; max-width: 760px; }
+        .portal-header p { color: var(--gray); font-size: 15px; line-height: 1.8; max-width: 600px; }
+        .portal-grid { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); margin-top: 45px; }
+        .portal-card { background: var(--panel); min-height: 220px; padding: 28px; }
+        .portal-card .card-label { color: var(--accent); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+        .portal-card h2 { font-size: 28px; margin: 36px 0 14px; }
+        .portal-card p { color: var(--gray); font-size: 13px; line-height: 1.7; }
+        .portal-card a:not(.button) { border-bottom: 1px solid var(--line); display: inline-block; font-size: 14px; margin-top: 12px; padding-bottom: 5px; }
+        .chat-widget { bottom: 24px; position: fixed; right: 24px; z-index: 5; }
+        .chat-toggle { background: var(--accent); border: 0; color: var(--black); cursor: pointer; font: 600 11px 'Montserrat', sans-serif; letter-spacing: .1em; padding: 16px 20px; text-transform: uppercase; }
+        .chat-panel { background: var(--white); bottom: 58px; color: var(--black); display: none; padding: 24px; position: absolute; right: 0; width: 300px; }
+        .chat-panel.is-open { display: block; }
+        .chat-panel h2 { font-size: 26px; }.chat-panel p { color: #555; font-size: 12px; line-height: 1.6; }.chat-options { display: grid; gap: 8px; margin-top: 18px; }.chat-options a { border: 1px solid #d3d3cf; font-size: 11px; padding: 12px; }.chat-options a:hover { border-color: var(--accent); }
+        .portal-note { color: var(--gray); font-size: 11px; line-height: 1.6; margin-top: 35px; max-width: 650px; }
+        @media (max-width: 700px) { .portal { padding: 30px 20px 80px; }.portal-grid { grid-template-columns: 1fr; }.portal-card { min-height: auto; }.chat-widget { bottom: 16px; right: 16px; }.chat-panel { bottom: 58px; right: -4px; width: min(300px, calc(100vw - 32px)); } }
+    </style>
+</head>
+<body>
+    <main class="portal">
+        <header class="portal-header"><a class="brand" href="index.html">Drive.<span>We'll dispatch</span></a><h1>Carrier setup and support.</h1><p>Reach the Alphaway Logistics dispatch desk directly. Call, email, or start with the carrier agreement below.</p></header>
+        <section class="portal-grid" aria-label="Contact options">
+            <article class="portal-card"><span class="card-label">Direct line</span><h2>Call us</h2><p>Speak directly with the carrier setup and support team.</p><a href="tel:3035025008">303-502-5008 &#8599;</a></article>
+            <article class="portal-card"><span class="card-label">Carrier support</span><h2>Email us</h2><p>Send documents, questions, or setup details to our dispatch desk.</p><a href="mailto:info@alphawaylogistics.com">info@alphawaylogistics.com &#8599;</a></article>
+            <article class="portal-card"><span class="card-label">Get started</span><h2>Sign online</h2><p>Complete the carrier agreement and electronic signature in minutes.</p><a class="button button-light" href="carrier-agreement.html">Open agreement &#8594;</a></article>
+            <article class="portal-card"><span class="card-label">For brokers</span><h2>Send a load</h2><p>Share load, equipment, rate, and credential details with our dispatch desk.</p><a class="button button-light" href="broker-intake.html">Open intake form &#8594;</a></article>
+            <article class="portal-card"><span class="card-label">For carriers</span><h2>Get matched</h2><p>Tell our dispatch desk what equipment and lanes you prefer, and we will match you with available freight.</p><a class="button button-light" href="carrier-agreement.html">Start carrier setup &#8594;</a></article>
+        </section>
+        <p class="portal-note">For carrier setup, have your legal carrier name, MC / DOT number, authorized representative details, and operating documents ready. For urgent support, calling is fastest.</p>
+    </main>
+    <div class="chat-widget">
+        <div class="chat-panel" id="chat-panel" aria-hidden="true"><h2>Quick chat</h2><p>How can the dispatch desk help today?</p><div class="chat-options"><a href="carrier-agreement.html">I need carrier setup</a><a href="tel:3035025008">I need urgent support</a><a href="mailto:info@alphawaylogistics.com?subject=Carrier%20support">I have a support question</a></div></div>
+        <button class="chat-toggle" id="chat-toggle" type="button" aria-expanded="false" aria-controls="chat-panel">Quick chat</button>
+    </div>
+    <script>
+        const chatToggle = document.querySelector('#chat-toggle');
+        const chatPanel = document.querySelector('#chat-panel');
+        chatToggle.addEventListener('click', () => {
+            const isOpen = chatPanel.classList.toggle('is-open');
+            chatPanel.setAttribute('aria-hidden', String(!isOpen));
+            chatToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+    </script>
+</body>
+</html>

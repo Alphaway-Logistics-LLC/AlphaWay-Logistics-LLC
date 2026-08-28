@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Broker Intake Form | Alphaway Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .intake { margin: 0 auto; max-width: 1040px; padding: 52px 32px 90px; }
+        .intake-header { border-bottom: 1px solid var(--line); padding-bottom: 48px; }
+        .intake-header h1 { font: 400 clamp(44px, 7vw, 76px)/1.1 'Playfair Display', serif; margin: 58px 0 18px; max-width: 800px; }
+        .intake-header p { color: var(--gray); font-size: 14px; line-height: 1.8; max-width: 690px; }
+        .expectation { border-left: 2px solid var(--accent); margin-top: 28px !important; padding-left: 18px; }
+        .intake-form { margin-top: 54px; }
+        .intake-section { border-top: 1px solid var(--line); padding: 27px 0 34px; }
+        .intake-section h2 { font-size: 29px; margin-bottom: 22px; }
+        .intake-grid { display: grid; gap: 19px 22px; grid-template-columns: 1fr 1fr; }
+        .intake label { color: var(--gray); display: grid; font-size: 10px; gap: 8px; letter-spacing: .1em; text-transform: uppercase; }
+        .intake input, .intake select, .intake textarea { background: transparent; border: 1px solid var(--line); color: var(--white); font: 14px 'Montserrat', sans-serif; padding: 14px; width: 100%; }
+        .intake select option { background: var(--black); }
+        .intake textarea { min-height: 110px; resize: vertical; }
+        .intake input:focus, .intake select:focus, .intake textarea:focus { border-color: var(--accent); outline: none; }
+        .full-width { grid-column: 1 / -1; }
+        .file-help { color: var(--gray); font-size: 11px; line-height: 1.6; margin-top: 10px; }
+        .intake-actions { align-items: center; display: flex; gap: 22px; margin-top: 10px; }
+        .intake-message { color: var(--accent); font-size: 12px; line-height: 1.6; min-height: 22px; }
+        .back-link { color: var(--gray); display: inline-block; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+        @media (max-width: 700px) { .intake { padding: 32px 20px 70px; }.intake-grid { grid-template-columns: 1fr; }.full-width { grid-column: auto; }.intake-actions { align-items: stretch; flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <main class="intake">
+        <header class="intake-header"><a class="brand" href="index.html">Drive.<span>We'll dispatch</span></a><h1>Broker intake form.</h1><p>Send the details our dispatch desk needs to review a load and respond quickly.</p><p class="expectation"><strong>Dispatch desk hours:</strong> Monday-Friday, 8:00 AM-6:00 PM MT. We serve all 48 continental states and primarily support Dry Van, Reefer, and Flatbed freight. Please use our dedicated business email for load documents and support.</p></header>
+        <form class="intake-form" id="broker-form" data-web3forms action="https://api.web3forms.com/submit" method="POST"><input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"><input type="hidden" name="subject" value="Broker load intake">
+            <section class="intake-section" aria-labelledby="broker-contact-title"><h2 id="broker-contact-title">Broker contact information</h2><div class="intake-grid"><label for="brokerage">Brokerage name<input id="brokerage" name="brokerage" required></label><label for="contact-name">Point-of-contact name<input id="contact-name" name="contact-name" required></label><label for="broker-phone">Phone number<input id="broker-phone" name="broker-phone" type="tel" required></label><label for="broker-email">Official corporate email<input id="broker-email" name="broker-email" type="email" placeholder="name@brokerage.com" required></label></div></section>
+            <section class="intake-section" aria-labelledby="load-title"><h2 id="load-title">Load and equipment details</h2><div class="intake-grid"><label for="origin">Origin city / state<input id="origin" name="origin" placeholder="Denver, CO" required></label><label for="destination">Destination city / state<input id="destination" name="destination" placeholder="Dallas, TX" required></label><label for="trailer">Trailer type required<select id="trailer" name="trailer" required><option value="">Select equipment</option><option>Dry Van</option><option>Reefer</option><option>Flatbed</option><option>Other</option></select></label><label for="pickup">Pickup date<input id="pickup" name="pickup" type="date" required></label><label for="rate">Estimated rate per mile or flat pay<input id="rate" name="rate" placeholder="$3.00 / mile or $2,500 flat" required></label><label for="notes">Load notes<input id="notes" name="notes" placeholder="Commodity, weight, stops, special requirements"></label></div></section>
+            <section class="intake-section" aria-labelledby="credentials-title"><h2 id="credentials-title">Operating credentials</h2><div class="intake-grid"><label for="mc-ff">MC or FF number<input id="mc-ff" name="mc-ff" required></label><label for="dot">DOT number<input id="dot" name="dot"></label><label class="full-width" for="documents">Upload rate confirmation or onboarding packet<input id="documents" name="documents" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"><span class="file-help">Accepted: PDF, DOC, DOCX, JPG, or PNG. Uploads are included for review when this form is connected to a secure submission service.</span></label><label class="full-width" for="message">Additional instructions<textarea id="message" name="message" placeholder="Share appointment details, accessorials, or anything the dispatch team should know."></textarea></label></div></section>
+            <div class="intake-actions"><button class="button button-light" type="submit">Send load for review <span aria-hidden="true">&#8594;</span></button><a class="back-link" href="index.html">&#8592; Back to Alphaway Logistics</a></div><p class="intake-message" role="status" aria-live="polite"></p>
+        </form>
+    </main>
+    <script src="script.js" defer></script>
+</body>
+</html>

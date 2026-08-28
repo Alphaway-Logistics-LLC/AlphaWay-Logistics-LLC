@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carrier Agreement | Alphaway Logistics</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .agreement { margin: 0 auto; max-width: 820px; padding: 55px 24px 80px; }
+        .agreement-header { border-bottom: 1px solid var(--line); margin-bottom: 42px; padding-bottom: 28px; }
+        .agreement-header h1 { font: 400 clamp(42px, 7vw, 68px)/1.15 'Playfair Display', serif; margin: 35px 0 15px; }
+        .agreement-intro { color: var(--gray); font-size: 14px; line-height: 1.8; max-width: 620px; }
+        .agreement-section { border-top: 1px solid var(--line); margin-top: 34px; padding-top: 26px; }
+        .agreement h2 { font-size: 29px; margin-bottom: 20px; }
+        .agreement-grid { display: grid; gap: 18px 20px; grid-template-columns: 1fr 1fr; }
+        .agreement label { color: var(--gray); display: grid; font-size: 11px; gap: 8px; letter-spacing: .08em; text-transform: uppercase; }
+        .agreement input { background: transparent; border: 1px solid var(--line); color: var(--white); font: 14px 'Montserrat', sans-serif; padding: 14px; width: 100%; }
+        .agreement input:focus { border-color: var(--accent); outline: none; }
+        .terms { background: var(--panel); color: var(--gray); font-size: 13px; line-height: 1.8; padding: 24px; }
+        .check-row { align-items: flex-start; display: flex; gap: 10px; margin: 18px 0; }
+        .check-row input { margin-top: 3px; width: auto; }
+        .check-row label { color: var(--white); display: block; font-size: 13px; letter-spacing: 0; line-height: 1.6; text-transform: none; }
+        .agreement-actions { align-items: center; display: flex; gap: 18px; margin-top: 35px; }
+        .agreement-message { color: var(--accent); font-size: 12px; line-height: 1.6; min-height: 25px; }
+        .back-link { color: var(--gray); display: inline-block; font-size: 11px; letter-spacing: .1em; margin-top: 27px; text-transform: uppercase; }
+        @media print { body { background: white; color: black; }.agreement-actions, .back-link { display: none; }.terms { background: #f3f3f3; color: #222; } }
+        @media (max-width: 600px) { .agreement { padding: 35px 20px 60px; }.agreement-grid { grid-template-columns: 1fr; }.agreement-actions { align-items: stretch; flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <main class="agreement">
+        <header class="agreement-header">
+            <a class="brand" href="index.html">Drive.<span>We'll dispatch</span></a>
+            <h1>Carrier agreement</h1>
+            <p class="agreement-intro">Review the terms below, complete your carrier details, and sign electronically. The process takes only a few minutes.</p>
+        </header>
+        <form id="agreement-form" data-web3forms action="https://api.web3forms.com/submit" method="POST"><input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"><input type="hidden" name="subject" value="Signed Carrier Agreement">
+            <section class="agreement-section" aria-labelledby="carrier-details-title">
+                <h2 id="carrier-details-title">Carrier details</h2>
+                <div class="agreement-grid">
+                    <label for="carrier-name">Legal carrier name<input id="carrier-name" name="carrier-name" required></label>
+                    <label for="representative">Authorized representative<input id="representative" name="representative" required></label>
+                    <label for="carrier-email">Email address<input id="carrier-email" name="carrier-email" type="email" required></label>
+                    <label for="dot-number">MC / DOT number<input id="dot-number" name="dot-number" required></label>
+                </div>
+            </section>
+            <section class="agreement-section" aria-labelledby="terms-title">
+                <h2 id="terms-title">Agreement terms</h2>
+                <div class="terms"><p>Alphaway Logistics will provide dispatch coordination services, including load sourcing, broker communication, rate negotiation, route support, and paperwork assistance. The carrier remains responsible for operating authority, insurance, safety compliance, equipment, drivers, cargo, and all obligations required by law.</p><p>The carrier authorizes Alphaway Logistics to communicate with brokers and shippers on the carrier's behalf for the purpose of arranging transportation. Rates, loads, and trip decisions remain subject to the carrier's approval.</p><p>Either party may end this agreement by written notice. Any fees, payment terms, and service details separately agreed in writing remain in effect for services already performed.</p></div>
+                <div class="check-row"><input id="terms-agree" name="terms-agree" type="checkbox" required><label for="terms-agree">I have read and agree to the carrier agreement terms above.</label></div>
+                <div class="check-row"><input id="electronic-consent" name="electronic-consent" type="checkbox" required><label for="electronic-consent">I consent to use an electronic signature and confirm that I am authorized to sign for this carrier.</label></div>
+            </section>
+            <section class="agreement-section" aria-labelledby="signature-title">
+                <h2 id="signature-title">Sign and submit</h2>
+                <div class="agreement-grid"><label for="signature">Type full legal name<input id="signature" name="signature" required></label><label for="signature-date">Date<input id="signature-date" name="signature-date" type="date" required></label></div>
+            </section>
+            <div class="agreement-actions"><button class="button button-light" type="submit">Email signed agreement <span aria-hidden="true">&#8594;</span></button><button class="button" type="button" onclick="window.print()">Print</button></div>
+            <p class="agreement-message" role="status" aria-live="polite"></p>
+        </form>
+        <a class="back-link" href="index.html">&#8592; Back to Alphaway Logistics</a>
+    </main>
+    <script src="script.js" defer></script>
+</body>
+</html>
