@@ -1,0 +1,30 @@
+{
+  "name": "alphaway-logistics-website",
+  "version": "1.0.0",
+  "description": "Professional dispatching for owner-operators and small fleets",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node -e \"require('dotenv').config(); const express = require('express'); const app = express(); app.use(express.json()); app.use(express.static('.')); const handler = require('./api/submitForm.js'); app.post('/api/submit-form', handler); app.listen(3000, () => console.log('Server running on http://localhost:3000'));\"",
+    "build": "echo 'Static site - no build needed'",
+    "start": "node server.js",
+    "test": "echo 'Add tests here'"
+  },
+  "keywords": [
+    "logistics",
+    "dispatching",
+    "freight",
+    "owner-operator"
+  ],
+  "author": "Alphaway Logistics",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
